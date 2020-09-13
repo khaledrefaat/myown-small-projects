@@ -38,38 +38,12 @@ h1 {
 	color: #fff;
 }
 
-
-form {
-	/* margin-top: 5rem; */
-}
-
 input {
 	width: 30rem;
 	height: 4rem;
 	margin-right: .5rem;
 	outline: none;
 	font-size: 1.8rem;
-}
-
-.btn {
-	padding: 1.2rem 2rem;
-	outline: none;
-	border: none;
-	background-color: #27ae60;
-	color: #fff;
-	transform: translateY(0);
-	transition: all .3s ease-out;
-	color: #fff;
-}
-
-.btn:hover {
-	background-color: #2ecc71;
-	box-shadow: 0 1rem 2rem rgba(0, 0, 0, .1);
-}
-
-.btn:active {
-	transform: translateY(3px);
-	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
 }
 
 
@@ -91,6 +65,34 @@ input {
 	margin: 1rem;
 	color: #fff;
 }
+
+
+/* Buttons Style */
+
+.btn {
+	padding: 1.2rem 2rem;
+	outline: none;
+	border: none;
+	color: #fff;
+	transform: translateY(0);
+	transition: all .3s ease-out;
+}
+
+.btn:hover {box-shadow: 0 1rem 2rem rgba(0, 0, 0, .1);}
+
+.btn:active {
+	transform: translateY(3px);
+	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+}
+
+.btn-add {background-color: #27ae60;}
+
+.btn-add:hover {background-color: #2ecc71;}
+
+.btn-clear {background-color: #341f97;}
+
+.btn-clear:hover {background-color: #5f27cd;}
+
 
 .btn-delete  {
 	border-radius: 50%;

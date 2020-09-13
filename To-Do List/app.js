@@ -1,6 +1,7 @@
 const formInput_input = document.querySelector('input');
 const addButton_button = document.querySelector('.btn-add');
 const deleteButton_button = document.querySelector('.btn-delete');
+const clearButton_button = document.querySelector('.btn-clear');
 const todoList_div = document.querySelector('.todo-list')
 const todo_div = document.querySelectorAll('.todo')
 
@@ -8,6 +9,7 @@ const todo_div = document.querySelectorAll('.todo')
 // event Listeners
 addButton_button.addEventListener('click', addTodo)
 todoList_div.addEventListener('click', deleteTodo);
+clearButton_button.addEventListener('click', clearBtn);
 
 // functions
 
@@ -24,4 +26,8 @@ function deleteTodo(e) {
         let todo = e.target.parentNode;
         todo.parentNode.removeChild(todo);
     }
+}
+
+function clearBtn() {
+    todoList_div.innerHTML = '';
 }
