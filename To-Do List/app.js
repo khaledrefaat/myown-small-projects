@@ -23,7 +23,14 @@ function addTodo(e) {
 }
 
 function todoBtns(e) {
-    if (e.target.innerHTML === 'X') e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+    e.preventDefault();
+    if (e.target.innerHTML === 'X') {
+        e.target.parentNode.classList.add('deleted')
+        setTimeout(function () {
+            e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+        }, 500)
+
+    }
     else if (e.target.innerHTML === '✔') e.target.parentNode.childNodes[0].classList.add('complete')
 }
 
