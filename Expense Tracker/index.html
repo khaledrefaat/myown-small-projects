@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <title>Expense Tracker</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="heading-1">expense tracker</h1>
+        <h1 class="heading-2">add new item</h1>
+        <form action="#">
+            <div>
+                <label for="#" class="label-name">name: </label>
+                <input type="text" class="input-name">
+            </div>
+            <div>
+                <label for="#" class="label-date">date: </label>
+                <input type="date" class="input-date">
+                <label for="#" class="label-amount">amount</label>
+                <input type="number" class="input-amount">
+            </div>
+            <button class="btn btn-add">add expense</button>
+            <div class="expense-container">
+                <div class="expense-info">
+                    <div>name</div>
+                    <div>date</div>
+                    <div>amount</div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
