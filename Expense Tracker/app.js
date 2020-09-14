@@ -31,7 +31,8 @@ function addExpense(e) {
 function removeExpense(e) {
     if (e.target.value = 'X') {
         e.preventDefault();
-        let expense = e.target.parentNode
-        expense.remove()
+        let expense = e.target.parentNode;
+        expense.classList.add('delete');
+        setTimeout(() => expense.remove(), 500);
     }
 }
