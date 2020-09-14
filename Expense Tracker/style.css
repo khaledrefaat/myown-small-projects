@@ -26,9 +26,42 @@ body {
     justify-content: flex-start;
     flex-direction: column;
     padding-top: 5rem;
+    text-transform: capitalize;
 }
 
 
+
+/* typography Style */
+
+.heading-1 {
+    font-size: 6rem;
+    font-weight: 300;
+}
+
+.heading-2 {
+    font-size: 2.2rem;
+    color: #219953;
+}
+
+
+/* form style */
+
+input {
+    width: 30rem;
+    height: 3rem;
+    /* border: none; */
+    outline: none;
+    margin: .5rem 1rem;
+    font-size: 1.6rem;
+}
+
+input[type=text] {
+    width: 68rem;
+}
+
+label {
+    font-size: 1.8rem;
+}
 
 
 /* Btn Style */
@@ -39,6 +72,7 @@ body {
 	transform: translateY(0);
     transition: all .3s ease-out;
     color: #fff;
+    text-transform: capitalize;
 }
 .btn:hover {box-shadow: 0 1rem 2rem rgba(0, 0, 0, .1);}
 
@@ -49,8 +83,10 @@ body {
 
 .btn-add {
     background-color: #27ae60;
-	padding: 1.2rem 2rem;
-
+    padding: 1.2rem 2rem;
+    transform: translateX(33rem);
+    margin-top: 2rem;
+    font-size: 1.6rem;
 }
 
 .btn-add:hover {background-color: #2ecc71}
@@ -59,9 +95,35 @@ body {
     border-radius: 50%;
     text-align: center;
     background-color: #EA2027;
-	padding: .5rem 1rem;
+    padding: .5rem 1rem;
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
 }
 
 .btn-delete:hover {
     background-color: #eb4b50
+}
+
+
+/* Expense Style */
+.expense-info,
+.expense-details {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.8rem;
+
+}
+
+.expense-info {
+    padding-top: 4rem;
+    padding-bottom: 1rem;
+    font-weight: 700;
+}
+
+.expense-details {
+    background-color: #ddd;
+    /* justify-content: space-evenly; */
+    padding: .5rem 1rem;
+    position: relative;
 }
