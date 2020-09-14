@@ -12,6 +12,33 @@
 <body>
     <div class="container">
         <h1>Expense Tracker</h1>
+        <h1>Add New Item</h1>
+        <form action="#">
+            <div>
+                <label for="#" class="label-name">Name: </label>
+                <input type="text">
+            </div>
+            <div>
+                <label for="#" class="label-date">Date: </label>
+                <input type="text">
+                <label for="#" class="label-amount">Amount</label>
+                <input type="text">
+            </div>
+            <button class="btn btn-add">Add Expense</button>
+            <div>
+                <div class="expense-info">
+                    <div>name</div>
+                    <div>date</div>
+                    <div>amount</div>
+                </div>
+                <div>
+                    <div class="expense-name"></div>
+                    <div class="expense-date"></div>
+                    <div class="expense-amount"></div>
+                    <button class="btn btn-delete">X</button>
+                </div>
+            </div>
+        </form>
     </div>
     <script src="app.js"></script>
 </body>
