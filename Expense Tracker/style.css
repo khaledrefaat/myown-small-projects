@@ -141,7 +141,7 @@ label {
     opacity: 1;
     visibility: visible;
     pointer-events: all;    
-    transform: translateY(0) rotate(0);
+    transform: translateY(0);
     transition: all .5s ease-out;
 }
 /* deleting class animation */
@@ -149,5 +149,5 @@ label {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;    
-    transform: translateY(3rem) rotate(5deg);
+    transform: translateY(3rem);
 }
