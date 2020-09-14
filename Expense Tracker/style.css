@@ -111,6 +111,12 @@ label {
 
 
 /* Expense Style */
+
+.expense-container {
+    flex: 1;
+    width: 100%;
+}
+
 .expense-info,
 .expense-details {
     display: flex;
@@ -130,6 +136,4 @@ label {
     /* justify-content: space-evenly; */
     padding: .5rem 1rem;
     position: relative;
-    margin-top: 1rem;
-
-}
+    margin-top: 1rem;}
