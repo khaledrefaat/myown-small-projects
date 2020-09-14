@@ -84,12 +84,16 @@ label {
 .btn-add {
     background-color: #27ae60;
     padding: 1.2rem 2rem;
-    transform: translateX(33rem);
+    transform: translateY(0) translateX(33rem);
     margin-top: 2rem;
     font-size: 1.6rem;
 }
 
 .btn-add:hover {background-color: #2ecc71}
+
+.btn-add:active {
+    transform: translateY(3px) translateX(33rem);
+}
 
 .btn-delete {
     border-radius: 50%;
@@ -126,4 +130,6 @@ label {
     /* justify-content: space-evenly; */
     padding: .5rem 1rem;
     position: relative;
+    margin-top: 1rem;
+
 }
