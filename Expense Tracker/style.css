@@ -19,7 +19,49 @@ body {
 }
 
 .container {
-	display: flex;
-	height: 100vh;
+    height: 100vh;
 	width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-top: 5rem;
+}
+
+
+
+
+/* Btn Style */
+
+.btn {
+	outline: none;
+	border: none;
+	transform: translateY(0);
+    transition: all .3s ease-out;
+    color: #fff;
+}
+.btn:hover {box-shadow: 0 1rem 2rem rgba(0, 0, 0, .1);}
+
+.btn:active {
+	transform: translateY(3px);
+	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+}
+
+.btn-add {
+    background-color: #27ae60;
+	padding: 1.2rem 2rem;
+
+}
+
+.btn-add:hover {background-color: #2ecc71}
+
+.btn-delete {
+    border-radius: 50%;
+    text-align: center;
+    background-color: #EA2027;
+	padding: .5rem 1rem;
+}
+
+.btn-delete:hover {
+    background-color: #eb4b50
 }
