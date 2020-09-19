@@ -43,7 +43,6 @@ body {
 }
 
 
-
 /* Form Style */
 form {
     display: flex;
@@ -93,9 +92,7 @@ form div {
 
 .btn-add:hover {background-color: #2ecc71}
 
-.btn-add:active {
-    transform: translateY(3px);
-}
+.btn-add:active {transform: translateY(3px);}
 
 .btn-details {
     background-color: #2e86de;
@@ -106,14 +103,12 @@ form div {
     margin: 1rem 0; /* to make space in the note area */
 }
 
-.btn-details:hover {
-    background-color: #3498db;
-}
+.btn-details:hover {background-color: #3498db;}
 
 
 .note-container {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(3,1fr);
     grid-row: auto;
     grid-column-gap: 6rem;
 }
@@ -122,4 +117,19 @@ form div {
     grid-row: auto;
     grid-column: auto;
     display: inline-block;
+    border: 1px solid #eee;
+    padding: 1rem 4rem;
+    box-shadow: 0 1rem .5rem rgba(0, 0, 0, .1);
+    margin-top: 4rem;
 }
+
+.note:nth-child(-n + 2) {margin-top: 2rem;}  /* select first two childs */
+
+
+
+.note h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.note p {font-size: 1.6rem;}

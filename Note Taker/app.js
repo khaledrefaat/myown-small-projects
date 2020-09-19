@@ -8,10 +8,11 @@ btnAdd_btn.addEventListener('click', e => {
     e.preventDefault();
     if (noteInput_textarea.value !== '') {
         if (!noteContainer_div.innerHTML.includes('<div class="note">')) noteContainer_div.innerHTML = '';
+        let note = noteInput_textarea.value.length > 15 ? noteInput_textarea.value.slice(0, 15) + '...' : noteInput_textarea.value;
         noteContainer_div.insertAdjacentHTML('beforeend', `
         <div class="note">
             <h3>note ${i}</h3>
-            <p>${noteInput_textarea.value}</p>
+            <p>${note}</p>
             <div class="btn btn-details">view details</div>
         </div>
         `)
