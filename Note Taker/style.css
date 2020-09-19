@@ -106,27 +106,35 @@ form div {
 
 .btn-details:hover {background-color: #3498db;}
 
-.btn-exit {
+.btn-exit,
+.btn-delete {
     font-size: 1.9rem;
     text-transform: uppercase;
-    text-decoration: none;
-    position: absolute;
-    top: 3%;
-    right: 2%;
     color: #fff;
     background-color: #EA2027;
     padding: .4rem .8rem;
+    position: absolute;
+    top: 3%;
+    right: 2%;
 }
 
-.btn-exit:hover {background-color: #eb4d52;}
+
+.btn-exit:hover,
+.btn-delete:hover {background-color: #eb4d52;}
+
+.btn-delete {
+    border-radius: 50%;
+    font-size: 1.4rem;
+}
 
 /* note style */
 
 .note-container {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(4,minmax(20rem, 1fr));
     grid-row: auto;
     grid-column-gap: 6rem;
+    padding: 0 7rem;
 }
 
 .note {
@@ -137,10 +145,12 @@ form div {
     padding: 1rem 4rem;
     box-shadow: 0 1rem .5rem rgba(0, 0, 0, .1);
     margin-top: 4rem;
+    position: relative;
+    overflow-wrap: break-word;
+    opacity: 1;
+    visibility: visible;
+    transition: all .5s ease-out;
 }
-
-.note:nth-child(-n + 2) {margin-top: 2rem;}  /* select first two childs */
-
 
 
 .note h3 {
@@ -149,6 +159,11 @@ form div {
 }
 
 .note p {font-size: 1.6rem;}
+
+.note-delete {
+    opacity: 0;
+    visibility: hidden;
+}
 
 /* popup style */
 
