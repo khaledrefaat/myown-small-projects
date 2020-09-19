@@ -45,18 +45,73 @@ body {
 
 
 /* Form Style */
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 
-/* .btn {
+form div {
+    display: inherit;
+    align-items: inherit;
+}
+
+/* button style */
+
+.btn {
 	outline: none;
 	border: none;
 	transform: translateY(0);
     transition: all .3s ease-out;
     color: #fff;
     text-transform: capitalize;
+    border-radius: 4px;
 }
 .btn:hover {box-shadow: 0 1rem 2rem rgba(0, 0, 0, .1);}
 
 .btn:active {
 	transform: translateY(3px);
 	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
-} */
+}
+
+.btn-add {
+    background-color: #27ae60;
+    padding: 1.2rem 2rem;
+    transform: translateY(0);
+    margin: 2rem 0;
+    font-size: 1.6rem;
+}
+
+.btn-add:hover {background-color: #2ecc71}
+
+.btn-add:active {
+    transform: translateY(3px);
+}
+
+.btn-details {
+    background-color: #2e86de;
+    padding: .8rem 1.5rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: inline-block;
+    margin: 1rem 0; /* to make space in the note area */
+}
+
+.btn-details:hover {
+    background-color: #3498db;
+}
+
+
+.note-container {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-row: auto;
+    grid-column-gap: 6rem;
+}
+
+.note {
+    grid-row: auto;
+    grid-column: auto;
+    display: inline-block;
+}
