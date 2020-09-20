@@ -37,7 +37,7 @@ function addNote(e) {
         noteInput_textarea.value = '';
         count++;
     }
-    console.log(noteValue);
+    // console.log(noteValue);
 
 }
 
