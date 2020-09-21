@@ -47,8 +47,8 @@ body {
 }
 
 .grid div {
-    width: 10rem;
-    height: 10rem;
+    width: 12rem;
+    height: 12rem;
     background-color: crimson;
-    margin: 1px;
+    margin: .5rem;
 }
