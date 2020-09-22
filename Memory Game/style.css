@@ -38,6 +38,8 @@ body {
     margin-top: 5rem;
 }
 
+.heading-2 {font-size: 3rem;}
+
 
 
 /* grid style */
@@ -90,3 +92,24 @@ body {
 .grid
 
 .remove-click {pointer-events: none;}
+
+button {
+    padding: 1rem 2rem;
+    border: none;
+    outline: none;
+    background-color: crimson;
+    color: #fff;
+    font-size: 1.6rem;
+    transform: translateY(0);
+    transition: all .3s ease-out;
+}
+
+button:hover {
+    background-color: #e7143e;
+    box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, .2);
+}
+
+button:active {
+    transform: translateY(3px);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+}
