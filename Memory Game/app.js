@@ -5,54 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let choices = [];
     let score = 0;
 
-    while (random1.length < 12) {
-        randomNum = Math.floor(Math.random() * 12) + 1;
-        if (!random1.includes(randomNum)) random1.push(randomNum);
-    }
-
-    while (random2.length < 12) {
-        randomNum = Math.floor(Math.random() * 12) + 1;
-        if (!random2.includes(randomNum)) random2.push(randomNum);
-    }
-
-    const grid = `
-    <div class="grid__item"><img src="images/${random1[0]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random1[1]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random1[2]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random1[3]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random1[4]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random1[5]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random1[6]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random1[7]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random1[8]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random1[9]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random1[10]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random1[11]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random2[0]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random2[1]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random2[2]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random2[3]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random2[4]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random2[5]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random2[6]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random2[7]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random2[8]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random2[9]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random2[10]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random2[11]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    `
-
-    document.querySelector('.grid').insertAdjacentHTML('beforeend', `${grid}`);
-
-
     // compare 2 pictures
     document.querySelectorAll('.grid__item').forEach(cur => {
         cur.addEventListener('click', checkCorrect)
     })
-    document.querySelector('button').addEventListener('click', restart);
+    document.querySelector('button').addEventListener('click', startGame);
 
     function checkCorrect() {
-        console.log('clicked')
         choices.push(this);
         // if there is already 2 cards fliped dont flip the third one
         if (choices.length < 3) {
@@ -81,34 +40,63 @@ document.addEventListener('DOMContentLoaded', () => {
         if (score === 12) alert('You Won!') // end the game
     }
 
-    function restart(e) {
-        e.preventDefault();
+    // generate random number and clear random array
+    function generateRandom() {
+        random1 = [];
+        random2 = [];
+        while (random1.length < 12) {
+            randomNum = Math.floor(Math.random() * 12) + 1;
+            if (!random1.includes(randomNum)) random1.push(randomNum);
+        }
+
+        while (random2.length < 12) {
+            randomNum = Math.floor(Math.random() * 12) + 1;
+            if (!random2.includes(randomNum)) random2.push(randomNum);
+        }
+    }
+
+    function startGame() {
         choices = [];
+        generateRandom();
+        document.querySelector('.grid').innerHTML = '';
+        document.querySelector('.grid').insertAdjacentHTML('beforeend', `
+    <div class="grid__item"><img src="images/${random1[0]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+    <div class="grid__item"><img src="images/${random1[1]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+    <div class="grid__item"><img src="images/${random1[2]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+    <div class="grid__item"><img src="images/${random1[3]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+    <div class="grid__item"><img src="images/${random1[4]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+    <div class="grid__item"><img src="images/${random1[5]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+    <div class="grid__item"><img src="images/${random1[6]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+    <div class="grid__item"><img src="images/${random1[7]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+    <div class="grid__item"><img src="images/${random1[8]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+    <div class="grid__item"><img src="images/${random1[9]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+    <div class="grid__item"><img src="images/${random1[10]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+    <div class="grid__item"><img src="images/${random1[11]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+    <div class="grid__item"><img src="images/${random2[0]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+    <div class="grid__item"><img src="images/${random2[1]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+    <div class="grid__item"><img src="images/${random2[2]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+    <div class="grid__item"><img src="images/${random2[3]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+    <div class="grid__item"><img src="images/${random2[4]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+    <div class="grid__item"><img src="images/${random2[5]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+    <div class="grid__item"><img src="images/${random2[6]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+    <div class="grid__item"><img src="images/${random2[7]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+    <div class="grid__item"><img src="images/${random2[8]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+    <div class="grid__item"><img src="images/${random2[9]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+    <div class="grid__item"><img src="images/${random2[10]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+    <div class="grid__item"><img src="images/${random2[11]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+        
+        `);
         document.querySelectorAll('.grid__item').forEach(cur => {
             cur.children[0].classList.remove('rotate-img');
             cur.children[1].classList.remove('roate-block');
             cur.classList.remove('remove-click');
-            score = 0;
-            document.querySelector('.heading-2').innerText = `score: ${score}`;
-            document.querySelector('.grid').innerHTML = '';
-            document.querySelector('.grid').insertAdjacentHTML('beforeend', `${grid}`);
-            random1 = [];
-            random2 = [];
-            while (random1.length < 12) {
-                randomNum = Math.floor(Math.random() * 12) + 1;
-                if (!random1.includes(randomNum)) random1.push(randomNum);
-            }
-
-            while (random2.length < 12) {
-                randomNum = Math.floor(Math.random() * 12) + 1;
-                if (!random2.includes(randomNum)) random2.push(randomNum);
-            }
-            document.querySelectorAll('.grid__item').forEach(cur => {
-                cur.addEventListener('click', checkCorrect)
-            })
-        })
+        });
+        score = 0;
+        document.querySelector('.heading-2').innerText = `score: ${score}`;
+        document.querySelectorAll('.grid__item').forEach(cur => {
+            cur.addEventListener('click', checkCorrect);
+        });
     }
 
-
-
+    startGame();
 })
