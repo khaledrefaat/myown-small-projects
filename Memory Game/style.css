@@ -52,10 +52,11 @@ body {
 .grid__item {
     width: 12rem;
     height: 12rem;
-    margin: .5rem;
+    margin: 1rem;
     cursor: pointer;
     position: relative;
     perspective: 50rem;
+    backface-visibility: hidden;
 }
 
 .grid__item--img {

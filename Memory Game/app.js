@@ -11,6 +11,23 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     document.querySelector('button').addEventListener('click', startGame);
 
+
+    // generate random number and clear random array
+    function generateRandom() {
+        random1 = [];
+        random2 = [];
+        while (random1.length < 12) {
+            randomNum = Math.floor(Math.random() * 12) + 1;
+            if (!random1.includes(randomNum)) random1.push(randomNum);
+        }
+
+        while (random2.length < 12) {
+            randomNum = Math.floor(Math.random() * 12) + 1;
+            if (!random2.includes(randomNum)) random2.push(randomNum);
+        }
+    }
+
+
     function checkCorrect() {
         choices.push(this);
         // if there is already 2 cards fliped dont flip the third one
@@ -40,19 +57,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (score === 12) alert('You Won!') // end the game
     }
 
-    // generate random number and clear random array
-    function generateRandom() {
-        random1 = [];
-        random2 = [];
-        while (random1.length < 12) {
-            randomNum = Math.floor(Math.random() * 12) + 1;
-            if (!random1.includes(randomNum)) random1.push(randomNum);
-        }
+    function showCard() {
+        document.querySelectorAll('.grid__item').forEach(cur => {
+            cur.children[0].classList.add('rotate-img');
+            cur.children[1].classList.add('roate-block');
+            cur.classList.add('remove-click');
+        });
+    }
 
-        while (random2.length < 12) {
-            randomNum = Math.floor(Math.random() * 12) + 1;
-            if (!random2.includes(randomNum)) random2.push(randomNum);
-        }
+    function hideCard() {
+        document.querySelectorAll('.grid__item').forEach(cur => {
+            cur.children[0].classList.remove('rotate-img');
+            cur.children[1].classList.remove('roate-block');
+            cur.classList.remove('remove-click');
+        });
     }
 
     function startGame() {
@@ -86,17 +104,13 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="grid__item"><img src="images/${random2[11]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
         
         `);
-        document.querySelectorAll('.grid__item').forEach(cur => {
-            cur.children[0].classList.remove('rotate-img');
-            cur.children[1].classList.remove('roate-block');
-            cur.classList.remove('remove-click');
-        });
+        showCard();
+        setTimeout(hideCard, 1000);
         score = 0;
         document.querySelector('.heading-2').innerText = `score: ${score}`;
         document.querySelectorAll('.grid__item').forEach(cur => {
             cur.addEventListener('click', checkCorrect);
         });
     }
-
     startGame();
 })
