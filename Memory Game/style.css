@@ -55,7 +55,7 @@ body {
     margin: 1rem;
     cursor: pointer;
     position: relative;
-    perspective: 50rem;
+    perspective: 144rem;
     backface-visibility: hidden;
 }
 
