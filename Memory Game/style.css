@@ -55,6 +55,7 @@ body {
     margin: .5rem;
     cursor: pointer;
     position: relative;
+    perspective: 50rem;
 }
 
 .grid__item--img {
