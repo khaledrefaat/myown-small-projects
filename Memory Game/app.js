@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // generate random number and clear random array
     function generateRandom() {
+        // there is 2 loops here to have random numbers from 1 to 12 twice 
         random1 = [];
         random2 = [];
         while (random1.length < 12) {
@@ -77,33 +78,13 @@ document.addEventListener('DOMContentLoaded', () => {
         choices = [];
         generateRandom();
         document.querySelector('.grid').innerHTML = '';
-        document.querySelector('.grid').insertAdjacentHTML('beforeend', `
-    <div class="grid__item"><img src="images/${random1[0]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random1[1]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random1[2]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random1[3]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random1[4]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random1[5]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random1[6]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random1[7]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random1[8]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random1[9]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random1[10]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random1[11]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random2[0]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random2[1]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random2[2]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random2[3]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random2[4]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random2[5]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random2[6]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random2[7]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random2[8]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random2[9]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random2[10]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-    <div class="grid__item"><img src="images/${random2[11]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
-        
-        `);
+        // create the grid element
+        for (let i = 0; i < random1.length; i++) {
+            document.querySelector('.grid').insertAdjacentHTML('beforeend', `
+        <div class="grid__item"><img src="images/${random1[i]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+        <div class="grid__item"><img src="images/${random2[i]}.jpg" class="grid__item--img"><div class="grid__item--block"></div></div>
+        `)
+        }
         showCard();
         setTimeout(hideCard, 1000);
         score = 0;
@@ -112,5 +93,5 @@ document.addEventListener('DOMContentLoaded', () => {
             cur.addEventListener('click', checkCorrect);
         });
     }
-    startGame();
+    startGame()
 })
