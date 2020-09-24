@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     document.querySelector('button').addEventListener('click', startGame);
 
-
     // generate random number and clear random array
     function generateRandom() {
         // there is 2 loops here to have random numbers from 1 to 12 twice 
@@ -27,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!random2.includes(randomNum)) random2.push(randomNum);
         }
     }
-
 
     function checkCorrect() {
         choices.push(this);
